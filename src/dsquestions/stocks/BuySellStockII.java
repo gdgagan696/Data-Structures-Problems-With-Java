@@ -1,4 +1,4 @@
-package dsquestions.arrays;
+package dsquestions.stocks;
 
 public class BuySellStockII {
     public static int maxProfit(int[] prices) {

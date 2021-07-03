@@ -1,4 +1,4 @@
-package dsquestions.arrays;
+package dsquestions.stocks;
 
 import java.util.Arrays;
 

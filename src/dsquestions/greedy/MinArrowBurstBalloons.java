@@ -7,6 +7,7 @@ public class MinArrowBurstBalloons {
 
     public static int findMinArrowShots(int[][] points) {
 
+        if (points == null || points.length == 0) return 0;
         Arrays.sort(points, Comparator.comparingInt(p -> p[1]));
         int i = 0;
         int minArrow = 0;

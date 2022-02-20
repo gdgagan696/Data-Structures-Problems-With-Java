@@ -29,7 +29,7 @@ public class MergeIntervals {
         return result;
     }
 
-    public int[][] merge_2(int[][] intervals) {
+    public static int[][] merge_2(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> {
             if (a[0] == b[0]) {
                 return Integer.compare(b[1], a[1]);
@@ -56,6 +56,7 @@ public class MergeIntervals {
         System.out.println(Arrays.toString(merge(new int[][]{{1, 4}, {5, 7}, {2, 6}})));
         System.out.println(Arrays.toString(merge(new int[][]{{1, 4}, {4, 5}})));
         System.out.println(Arrays.toString(merge(new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}})));
+        System.out.println(Arrays.toString(merge_2(new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}})));
 
     }
 }

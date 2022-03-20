@@ -34,8 +34,8 @@ public class MinimumDominoRotations {
     }
 
     public static void main(String[] args) {
-        int tops[] = {2, 1, 2, 4, 2, 2};
-        int bottoms[] = {5, 2, 6, 2, 3, 2};
+        int[] tops = {2, 1, 2, 4, 2, 2};
+        int[] bottoms = {5, 2, 6, 2, 3, 2};
         System.out.println(minDominoRotations(tops, bottoms));
     }
 }

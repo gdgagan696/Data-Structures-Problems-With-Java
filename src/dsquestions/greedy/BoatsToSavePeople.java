@@ -23,7 +23,25 @@ public class BoatsToSavePeople {
         return boatsNeeded;
     }
 
+    public static int numRescueBoats_2(int[] people, int limit) {
+        Arrays.sort(people);
+        int i = 0;
+        int j = people.length - 1;
+        int boatsNeeded = 0;
+        while (i <= j) {
+            int total = people[i] + people[j];
+            if (total <= limit) {
+                i++;
+            }
+            j--;
+            boatsNeeded++;
+        }
+
+        return boatsNeeded;
+    }
+
     public static void main(String[] args) {
         System.out.println(numRescueBoats(new int[]{3, 2, 2, 1}, 3));
+        System.out.println(numRescueBoats_2(new int[]{3, 2, 2, 1}, 3));
     }
 }

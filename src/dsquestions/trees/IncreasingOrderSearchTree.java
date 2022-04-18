@@ -27,7 +27,7 @@ public class IncreasingOrderSearchTree {
 
     private void inOrder(TreeNode root) {
         if (root == null) return;
-        inOrder(root.left, temp);
+        inOrder(root.left);
         temp.right = root;
         root.left = null;
         temp = root;

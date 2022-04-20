@@ -24,6 +24,6 @@ public class BSTIterator {
     }
 
     public boolean hasNext() {
-        return inorder.isEmpty();
+        return !inorder.isEmpty();
     }
 }

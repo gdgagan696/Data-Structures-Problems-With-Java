@@ -6,7 +6,7 @@ public class MyHashSet {
 
     public MyHashSet() {
         capacity = 1000000;
-        hashSet = new int[capacity];
+        hashSet = new Integer[][capacity];
     }
 
     public void add(int key) {

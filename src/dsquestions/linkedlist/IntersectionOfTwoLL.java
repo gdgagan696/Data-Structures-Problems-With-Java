@@ -7,15 +7,17 @@ public class IntersectionOfTwoLL {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         Set<ListNode> set = new HashSet<>();
-        while (headA != null) {
-            set.add(headA);
-            headA = headA.next;
+        ListNode current = headA;
+        while (current != null) {
+            set.add(current);
+            current = current.next;
         }
-        while (headB != null) {
-            if (!set.add(headB)) {
-                return headB;
+        current = headB;
+        while (current != null) {
+            if (!set.add(current)) {
+                return current;
             }
-            headB = headB.next;
+            current = current.next;
         }
         return null;
     }

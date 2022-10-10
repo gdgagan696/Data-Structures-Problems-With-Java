@@ -10,8 +10,9 @@ public class BreakAPalindrome {
             if (palindromeArray[i] != 'a') {
                 char old = palindromeArray[i];
                 palindromeArray[i] = 'a';
-                if (!isPalindrome(new String(palindromeArray))) {
-                    return new String(palindromeArray);
+                String str = new String(palindromeArray);
+                if (!isPalindrome(str)) {
+                    return str;
                 }
                 palindromeArray[i] = old;
             }

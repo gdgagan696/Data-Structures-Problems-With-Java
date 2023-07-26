@@ -13,9 +13,7 @@ public class MinSpeedTime {
     public static int minSpeedOnTime(int[] dist, double hour) {
         int left = 1;
         int right = 10000000;
-        ;
         int minSpeed = -1;
-
         while (left <= right) {
             int mid = (left + right) / 2;
             if (timeRequired(dist, mid) <= hour) {

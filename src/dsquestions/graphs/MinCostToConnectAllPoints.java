@@ -6,7 +6,9 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class MinCostToConnectAllPoints {
+
     public int minCostConnectPoints(int[][] points) {
+
         Queue<int[]> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a[2]));
 
         for (int i = 0; i < points.length; i++) {
@@ -24,19 +26,18 @@ public class MinCostToConnectAllPoints {
         while (!queue.isEmpty() && count > 0) {
             int[] currCostDetails = queue.poll();
 
-            int node1 = currCostDetails[0];
-            int node2 = currCostDetails[1];
+            int node = currCostDetails[1];
             int distanceCost = currCostDetails[2];
 
-            if (!visited[node2]) {
+            if (!visited[node]) {
 
-                visited[node2] = true;
+                visited[node] = true;
                 cost += distanceCost;
                 count--;
 
                 for (int i = 0; i < points.length; i++) {
-                    int d = getDistance(points[node2], points[i]);
-                    int[] distanceDiff = {node2, i, d};
+                    int d = getDistance(points[node], points[i]);
+                    int[] distanceDiff = {node, i, d};
                     queue.add(distanceDiff);
                 }
 
@@ -47,6 +48,7 @@ public class MinCostToConnectAllPoints {
     }
 
     private int getDistance(int[] a, int[] b) {
+
         return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
     }
 }

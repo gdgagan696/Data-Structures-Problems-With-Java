@@ -1,0 +1,37 @@
+package dsquestions.stocks.revision;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class StocksWithTransactionFee {
+    public static int maxProfit(int[] prices,int fee) {
+        Map<String, Integer> hm = new HashMap<>();
+        return maxProfit(prices, fee,0, true, hm);
+    }
+
+    private static int maxProfit(int[] prices,int fee, int i, boolean buy, Map<String, Integer> hm) {
+        if (i >= prices.length) {
+            return 0;
+        }
+        String key = i + "" + buy + "";
+        if (hm.containsKey(key)) {
+            return hm.get(key);
+        }
+        int profit = Integer.MIN_VALUE;
+        if (buy) {
+            int op1 = maxProfit(prices, fee,i + 1, false, hm) - prices[i];
+            int op2 = maxProfit(prices, fee,i + 1, true, hm);
+            profit = Math.max(profit, Math.max(op1, op2));
+        } else {
+            int op1 = maxProfit(prices, fee,i + 1, true, hm) + prices[i]-fee;
+            int op2 = maxProfit(prices, fee,i + 1, false, hm);
+            profit = Math.max(profit, Math.max(op1, op2));
+        }
+        hm.put(key, profit);
+        return profit;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(maxProfit(new int[]{1,3,2,8,4,9},2));
+    }
+}

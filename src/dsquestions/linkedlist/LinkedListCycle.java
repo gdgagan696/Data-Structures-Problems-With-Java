@@ -17,4 +17,19 @@ public class LinkedListCycle {
         }
         return false;
     }
+
+    public ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode next;
+        ListNode current = head;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        return head;
+    }
 }
+
